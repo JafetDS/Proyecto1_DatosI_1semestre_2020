@@ -3,9 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/Principal/src/principal/PrincipalController.java</file>
-            <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/Principal/src/principal/Principal.java</file>
-            <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/Principal/src/principal/FXMLPrincipal.fxml</file>
+            <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/Estructuras/NodoListasimple.java</file>
+            <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/Estructuras/NodoListadoble.java</file>
+            <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/principal/Principal.java</file>
+            <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/Estructuras/ListaDoble.java</file>
+            <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/Estructuras/ListaSimple.java</file>
         </group>
     </open-files>
 </project-private>

@@ -10,16 +10,22 @@ package Estructuras;
  * @author User
  * @param <T>
  */
-public class ListaDoble<T>{
-    private NodoListadoble<T> head;
+public class ListaCircularDoble<T> {
+        private NodoListadoble<T> head;
     private NodoListadoble<T> tail;
     private int len;
 
-    public ListaDoble() {
+    public ListaCircularDoble() {
         this.head = null;
         this.tail=null;
         this.len = 0;
     }
+    private void configure(){
+        this.tail.setNext(head);
+        this.head.setPrevius(tail);
+    }
+        
+    
     
     /**
      * retorna la cabeza de la lista
@@ -28,21 +34,17 @@ public class ListaDoble<T>{
     public NodoListadoble<T> getHead() {
         return head;
     }
-    /**
-     * 
-     * @return retorna el ultimo nodo de la lista
-     */
-
-    public NodoListadoble<T> getTail() {
-        return tail;
-    }
-
+    
     /**
      * Ingresa la cabeza de la lista
      * @return int len: Retorna el largo de la lista
      */
     public int getLen() {
         return len;
+    }
+
+    public NodoListadoble<T> getTail() {
+        return tail;
     }
 
 
@@ -121,9 +123,10 @@ public class ListaDoble<T>{
             this.head.setNext(temp);
             temp.setPrevius(this.head);
         }
+        configure();
         len++;
     }
-    /**
+     /**
      * Metodo para agregar un dato al final de la Lista
      * @param dato 
      */
@@ -142,6 +145,7 @@ public class ListaDoble<T>{
                      
         }
         len++;
+        configure();
         
     }
     
@@ -150,8 +154,8 @@ public class ListaDoble<T>{
      */
     private void removeFirst(){
         this.head=this.head.getNext();
-        this.head.setPrevius(null);
         len--;
+        configure();
     }
     
     /**
@@ -159,8 +163,8 @@ public class ListaDoble<T>{
      */
     private void removeLast(){
         this.tail=this.tail.getPrevius();
-        this.tail.setNext(null);
         len--;
+        configure();
     }
     
     public void addPos(int i,T dato){
@@ -169,28 +173,30 @@ public class ListaDoble<T>{
            addFirst(dato);
            return;
         }
-        if (i>this.len){
+        else if (i>this.len){
             System.out.println("El indice excede el largo de la lista"); 
             return;
         }
-        if (i==this.len){
+        else if (i==this.len){
             this.addLast(dato);
             return;
         }
-        int pos = 1;
-        NodoListadoble<T> aux=this.head;
-        while(pos<i){
-            aux=aux.getNext();
-            pos++;
-        }
-        NodoListadoble<T> temp=aux.getNext();
-        aux.setNext(new NodoListadoble(dato));
-        aux.getNext().setNext(temp);
-        aux.getNext().setPrevius(aux);
-        temp.setPrevius(aux.getNext());
-        
+        else{
+            int pos = 1;
+            NodoListadoble<T> aux=this.head;
+            while(pos<i){
+                aux=aux.getNext();
+                pos++;
+            }
+            NodoListadoble<T> temp=aux.getNext();
+            aux.setNext(new NodoListadoble(dato));
+            aux.getNext().setNext(temp);
+            aux.getNext().setPrevius(aux);
+            temp.setPrevius(aux.getNext());
 
-        len++;
+
+            len++;
+        }configure();
     
     }
         /**
@@ -225,10 +231,9 @@ public class ListaDoble<T>{
           aux.getPrevius().setNext(aux.getNext());
           aux.getNext().setPrevius(aux.getPrevius());
           len--; 
-        }
+        }configure();
     }  
 
-    
     
     
 }

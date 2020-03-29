@@ -5,15 +5,12 @@
  */
 package Estructuras;
 
-
- 
-
 /**
  *
  * @author User
  * @param <T>
  */
-public class ListaSimple<T>{
+public class ListaCircular<T>{
     private NodoListasimple<T> head;
     private int len;
    
@@ -21,11 +18,15 @@ public class ListaSimple<T>{
      * Constructor de lista 
      *  
      */
-    public ListaSimple(){
-   
+    public ListaCircular(){
         head=null;
         len=0;        
     }
+    
+    /**
+     * 
+     * @return Retorna la cabeza de la Lista
+     */
 
     public NodoListasimple<T> getHead() {
         return head;
@@ -114,12 +115,15 @@ public class ListaSimple<T>{
     }
     
     
+    
     public void addLast(T dato){
         NodoListasimple<T> aux= this.head;
-        while(aux.getNext()!=null){
+        while(aux.getNext()!=this.head){
             aux=aux.getNext();
         }
         aux.setNext(new NodoListasimple(dato));
+        aux=aux.getNext();
+        aux.setNext(this.head);
         len++;
     }
 
@@ -132,22 +136,21 @@ public class ListaSimple<T>{
     public void addPos(int i,T dato){
         
         if (i==0){
-           addFirst(dato);
-           return;
+           addFirst(dato);         
         }
-        if (i>=this.len){
-            return ;
+        else if (this.len%i==0){
+            addLast(dato);           
         }
-        int pos = 1;
-        NodoListasimple<T> aux=this.head;
-        while(pos<i){
-            aux=aux.getNext();
-            pos++;
+        else{
+            NodoListasimple<T> aux=this.head;
+            for(int pos=1;pos<i;pos++){
+                aux=aux.getNext();
+            }
+            NodoListasimple<T> temp=aux.getNext();
+            aux.setNext(new NodoListasimple(dato));
+            aux.getNext().setNext(temp);
+            len++;
         }
-        NodoListasimple<T> temp=aux.getNext();
-        aux.setNext(new NodoListasimple(dato));
-        aux.getNext().setNext(temp);
-        len++;
     
     }
     /**
@@ -157,7 +160,7 @@ public class ListaSimple<T>{
      */
     public boolean in(T dato){
         NodoListasimple<T> aux=head;
-        while (aux != null){
+        while (aux != head){
             if (aux.getData().equals(dato)){
                 System.out.println(aux.getData());
                 return true;
@@ -169,8 +172,16 @@ public class ListaSimple<T>{
     /**
      * Metodo para eliminar el primer elemento 
      */
-    private void removeFirst(){
+    public void removeFirst(){
         this.head=this.head.getNext();
+        len--;
+    }
+    public void removeLast(){
+        NodoListasimple<T> aux=this.head;
+        while(aux.getNext()!=this.head){
+            aux=aux .getNext();
+        }
+        aux.setNext(this.head);
         len--;
     }
     /**
@@ -181,19 +192,19 @@ public class ListaSimple<T>{
         if (pos==0){
             removeFirst();
         }
-        if (pos>len){
-            System.out.println("indice inexistente");
-            return;
+        else if (this.len%pos==0){
+            removeLast();           
         }
-        int cont=1;
-        NodoListasimple<T> aux=this.head;
-        while (cont<pos){
-            cont++;
-            aux= aux.getNext();
+        else{
+            int cont=1;
+            NodoListasimple<T> aux=this.head;
+            while (cont<pos){
+                cont++;
+                aux= aux.getNext();
+            }
+            aux.setNext(aux.getNext().getNext());
+            len--;
         }
-        aux.setNext(aux.getNext().getNext());
-        len--;
     }  
 
-    
 }
