@@ -88,12 +88,12 @@ public class ListaCircular<T>{
  
     public void addFirst(){
         if (this.head==null){
-            this.head= new NodoListasimple();
+            this.head= new NodoListasimple<>();
 
         }
         else{
             NodoListasimple<T> temp= this.head;
-            this.head= new NodoListasimple();
+            this.head= new NodoListasimple<>();
             this.head.setNext(temp);
         }
         len++;
@@ -104,17 +104,17 @@ public class ListaCircular<T>{
      */
     public void addFirst(T dato){
         if (this.head==null){
-            this.head= new NodoListasimple(dato);
-            this.head.setNext(this.head);
+            NodoListasimple<T> temp =  new NodoListasimple<>(dato);
+            temp.setNext(this.head);
+            this.head = temp;
+            
         }
         else {
             NodoListasimple<T> temp = this.head;
-            this.head = new NodoListasimple(dato);
+            this.head = new NodoListasimple<>(dato);
             this.head.setNext(temp);
+            
 
-            if (len == 1) {
-                temp.setNext(this.head);
-            }
         }
         len++;
     }
@@ -126,7 +126,7 @@ public class ListaCircular<T>{
         while(aux.getNext()!=this.head){
             aux=aux.getNext();
         }
-        aux.setNext(new NodoListasimple(dato));
+        aux.setNext(new NodoListasimple<>(dato));
         aux=aux.getNext();
         aux.setNext(this.head);
         len++;
@@ -152,7 +152,7 @@ public class ListaCircular<T>{
                 aux=aux.getNext();
             }
             NodoListasimple<T> temp=aux.getNext();
-            aux.setNext(new NodoListasimple(dato));
+            aux.setNext(new NodoListasimple<>(dato));
             aux.getNext().setNext(temp);
             len++;
         }
