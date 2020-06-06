@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Proyecto1_DatosI_1semestre_2020">
+    <output-path>$PROJECT_DIR$/out/artifacts/Proyecto1_DatosI_1semestre_2020</output-path>
+    <root id="root">
+      <element id="archive" name="Proyecto1_DatosI_1semestre_2020.jar">
+        <element id="module-output" name="Proyecto1_DatosI_1semestre_2020" />
+      </element>
+    </root>
+  </artifact>
+</component>

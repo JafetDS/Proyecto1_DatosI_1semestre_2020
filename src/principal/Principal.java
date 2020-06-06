@@ -23,21 +23,25 @@ public class Principal extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLPrincipal.fxml"));
-        
-        Scene scene = new Scene(root);
-        
+
+    Scene scene = new Scene(root);
+
         stage.setScene(scene);
         stage.show();
-    }
+}
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         launch(args);
+<<<<<<< HEAD
       /**
          * 
         ListaCircular<Integer> ListaCirDo = new ListaCircular<>();
+=======
+        /**ListaCircular<Integer> ListaCirDo = new ListaCircular<>();
+>>>>>>> Kenneth
         ListaCirDo.addFirst(1);
         ListaCirDo.addFirst(6);
         ListaCirDo.addFirst(3);
@@ -51,9 +55,12 @@ public class Principal extends Application {
       //  ListaCirDo.addLast(9);
       //  ListaCirDo.addPos(4,17);
         ListaCirDo.print();
+<<<<<<< HEAD
         
         /**
          * 
+=======
+>>>>>>> Kenneth
          */
     }
     

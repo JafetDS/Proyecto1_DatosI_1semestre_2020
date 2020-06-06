@@ -123,7 +123,7 @@ public class ListaCircular<T>{
     
     public void addLast(T dato){
         NodoListasimple<T> aux= this.head;
-        while(aux.getNext()!=this.head){
+        while(aux.getNext()!=null){
             aux=aux.getNext();
         }
         aux.setNext(new NodoListasimple<>(dato));
