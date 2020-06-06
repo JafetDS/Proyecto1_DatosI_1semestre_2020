@@ -11,13 +11,13 @@ package Estructuras;
  * @param <T>
  */
 public class ListaCircularDoble<T> {
-        private NodoListadoble<T> head;
+    private NodoListadoble<T> head;
     private NodoListadoble<T> tail;
     private int len;
 
     public ListaCircularDoble() {
         this.head = null;
-        this.tail=null;
+        this.tail= new NodoListadoble<>();
         this.len = 0;
     }
     private void configure(){
@@ -54,7 +54,7 @@ public class ListaCircularDoble<T> {
      */
     public void print(){
         NodoListadoble<T> aux= head;
-        while(aux !=null){
+        while(aux !=this.tail){
             System.out.println(aux.getData());
             aux=aux.getNext();                     
         }      
