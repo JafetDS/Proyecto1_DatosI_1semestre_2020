@@ -104,12 +104,17 @@ public class ListaCircular<T>{
      */
     public void addFirst(T dato){
         if (this.head==null){
-            this.head= new NodoListasimple(dato);           
-        }
-        else{
-            NodoListasimple<T> temp= this.head;
             this.head= new NodoListasimple(dato);
+            this.head.setNext(this.head);
+        }
+        else {
+            NodoListasimple<T> temp = this.head;
+            this.head = new NodoListasimple(dato);
             this.head.setNext(temp);
+
+            if (len == 1) {
+                temp.setNext(this.head);
+            }
         }
         len++;
     }
