@@ -174,6 +174,24 @@ public class ListaSimple<T>{
         len--;
     }
     /**
+     * 
+     * @param Dato DAto que quiere insertar
+     * @param pos 
+     */
+    public void replaceDato(T Dato,int pos){
+        if (pos>=this.len){
+            System.out.println("indice incorrecto");            
+        }
+        else{
+            NodoListasimple<T> aux = this.head;
+
+            for(int i=0;i<pos;i++){
+                aux=aux.getNext();           
+            }
+            aux.setData(Dato);
+        }
+    }
+    /**
      * Metodo para eliminar un elemento en una posicion dada
      * @param pos 
      */
@@ -194,6 +212,11 @@ public class ListaSimple<T>{
         aux.setNext(aux.getNext().getNext());
         len--;
     }  
+    
+        /**
+     * Metodo para eliminar un elemento en un dato dad0
+     * @param pos 
+     */
 
     
 }
