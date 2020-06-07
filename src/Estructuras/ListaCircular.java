@@ -45,7 +45,7 @@ public class ListaCircular<T>{
      */
     public void print(){
         NodoListasimple<T> aux= head;
-        while(aux !=null){
+        while(aux.getNext() != this.head){
             System.out.println(aux.getData());
             aux=aux.getNext();
             
@@ -107,13 +107,14 @@ public class ListaCircular<T>{
             NodoListasimple<T> temp =  new NodoListasimple<>(dato);
             temp.setNext(this.head);
             this.head = temp;
-            
+            System.out.println(this.head.getData());
         }
         else {
             NodoListasimple<T> temp = this.head;
             this.head = new NodoListasimple<>(dato);
             this.head.setNext(temp);
             
+            System.out.println(this.head.getData());
 
         }
         len++;
