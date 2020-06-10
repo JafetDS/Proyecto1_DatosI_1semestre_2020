@@ -19,7 +19,9 @@ public class NodoListadoble<T> {
      * Constructor del Nodo vacio
      */
     public NodoListadoble(){
-        next=null;        
+        next=null;   
+        data=null;
+        
     }
     /**
      * Método del constructor del Nodo con un dato

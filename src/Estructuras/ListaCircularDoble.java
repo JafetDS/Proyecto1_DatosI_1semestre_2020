@@ -113,13 +113,13 @@ public class ListaCircularDoble<T> {
      */
     public void addFirst(T dato){
         if (this.head==null){
-            this.head= new NodoListadoble(dato); 
+            this.head= new NodoListadoble<>(dato); 
             this.head.setNext(this.tail);
             this.tail.setPrevius(this.head);
         }
         else{
             NodoListadoble<T> temp= this.head;
-            this.head= new NodoListadoble(dato);
+            this.head= new NodoListadoble<>(dato);
             this.head.setNext(temp);
             temp.setPrevius(this.head);
         }
@@ -132,14 +132,14 @@ public class ListaCircularDoble<T> {
      */
     public void addLast(T dato){
         if (this.len==0){
-           this.tail=new NodoListadoble(dato);
+           this.tail=new NodoListadoble<>(dato);
            this.tail.setPrevius(this.head);
            this.head.setNext(this.tail);
           
         }
         else{
             NodoListadoble<T> temp =this.tail;
-            this.tail= new NodoListadoble(dato);
+            this.tail= new NodoListadoble<>(dato);
             this.tail.setPrevius(temp);
             temp.setNext(this.tail);
                      
@@ -189,7 +189,7 @@ public class ListaCircularDoble<T> {
                 pos++;
             }
             NodoListadoble<T> temp=aux.getNext();
-            aux.setNext(new NodoListadoble(dato));
+            aux.setNext(new NodoListadoble<>(dato));
             aux.getNext().setNext(temp);
             aux.getNext().setPrevius(aux);
             temp.setPrevius(aux.getNext());
