@@ -193,7 +193,18 @@ public class ListaSimple<T>{
         }
         aux.setNext(aux.getNext().getNext());
         len--;
-    }  
+    }
+
+    public void MySuffle(){
+        for (int i = 0; i < len; i++){
+            int s = i + (int)(Math.random() * (len - i ));
+
+            T temp = this.getInfo(s);
+            this.getNodo(s).setData(this.getInfo(i));
+            this.getNodo(i).setData(temp);
+
+        }
+    }
 
     
 }
