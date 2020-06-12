@@ -20,18 +20,8 @@ public class Principal extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        /*
-        
-        
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLPrincipal.fxml"));
 
-        Scene scene = new Scene(root);
-
-        stage.setScene(scene);
-        stage.show();
-        */
         PrincipalController juego = new PrincipalController();
-        
         juego.showScene(stage);
 }
 

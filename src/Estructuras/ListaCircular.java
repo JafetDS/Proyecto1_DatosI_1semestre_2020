@@ -45,7 +45,7 @@ public class ListaCircular<T>{
      */
     public void print(){
         NodoListasimple<T> aux= head;
-        while(aux.getNext() != this.head){
+        while(aux !=null){
             System.out.println(aux.getData());
             aux=aux.getNext();
             
@@ -107,13 +107,13 @@ public class ListaCircular<T>{
             NodoListasimple<T> temp =  new NodoListasimple<>(dato);
             temp.setNext(this.head);
             this.head = temp;
-       
+            
         }
         else {
             NodoListasimple<T> temp = this.head;
             this.head = new NodoListasimple<>(dato);
             this.head.setNext(temp);
-     
+            
 
         }
         len++;
@@ -181,12 +181,9 @@ public class ListaCircular<T>{
         this.head=this.head.getNext();
         len--;
     }
-    /**
-     * Metodo para eliminar el último elemento 
-     */
     public void removeLast(){
         NodoListasimple<T> aux=this.head;
-        while(aux.getNext().getNext()!=this.head){
+        while(aux.getNext()!=this.head){
             aux=aux .getNext();
         }
         aux.setNext(this.head);
@@ -208,26 +205,6 @@ public class ListaCircular<T>{
             NodoListasimple<T> aux=this.head;
             while (cont<pos){
                 cont++;
-                aux= aux.getNext();
-            }
-            aux.setNext(aux.getNext().getNext());
-            len--;
-        }
-    }  
-    
-        /**
-     * Metodo para eliminar un elemento dado
-     * @param obj
-     */
-    public void remove(T obj){
-        if (obj== this.head.getData()){
-            removeFirst();
-        }
-
-        else{
-       
-            NodoListasimple<T> aux=this.head;
-            while (aux.getNext().getData()!= obj){
                 aux= aux.getNext();
             }
             aux.setNext(aux.getNext().getNext());

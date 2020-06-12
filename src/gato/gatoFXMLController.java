@@ -53,7 +53,7 @@ public class gatoFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-       MatrizSimple<Button> matriz=new MatrizSimple<>(3,3);
+       //MatrizSimple<Button> matriz=new MatrizSimple<>(3,3);
     }    
     
 }

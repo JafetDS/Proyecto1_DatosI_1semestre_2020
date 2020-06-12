@@ -174,24 +174,6 @@ public class ListaSimple<T>{
         len--;
     }
     /**
-     * 
-     * @param Dato DAto que quiere insertar
-     * @param pos 
-     */
-    public void replaceDato(T Dato,int pos){
-        if (pos>=this.len){
-            System.out.println("indice incorrecto");            
-        }
-        else{
-            NodoListasimple<T> aux = this.head;
-
-            for(int i=0;i<pos;i++){
-                aux=aux.getNext();           
-            }
-            aux.setData(Dato);
-        }
-    }
-    /**
      * Metodo para eliminar un elemento en una posicion dada
      * @param pos 
      */
@@ -209,29 +191,27 @@ public class ListaSimple<T>{
             cont++;
             aux= aux.getNext();
         }
-        aux.setNext(aux.getNext().getNext());
+        if (aux.getNext().getNext() == null){
+            aux.setNext(null);
+        }
+//        aux.setNext(aux.getNext().getNext());
         len--;
-<<<<<<< HEAD
     }
 
-    public void MySuffle(){
+    public void deleteAll(){
+        head = null;
+        len = 0;
+    }
+
+    public void myShuffle(){
         for (int i = 0; i < len; i++){
             int s = i + (int)(Math.random() * (len - i ));
 
             T temp = this.getInfo(s);
             this.getNodo(s).setData(this.getInfo(i));
             this.getNodo(i).setData(temp);
-
         }
     }
-=======
-    }  
-    
-        /**
-     * Metodo para eliminar un elemento en un dato dad0
-     * @param pos 
-     */
->>>>>>> master
 
     
 }

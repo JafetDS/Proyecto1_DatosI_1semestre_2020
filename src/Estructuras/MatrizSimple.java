@@ -13,7 +13,7 @@ package Estructuras;
  * 
  */
 public class MatrizSimple<T> {
-    private int rows;
+    /**private int rows;
     private int columns;
     private RowMatriz<T> Matriz;
     
@@ -36,42 +36,42 @@ public class MatrizSimple<T> {
     /**
      * @return the rows
      */
-    public int getRows() {
+    /**public int getRows() {
         return rows;
     }
 
     /**
      * @param rows the rows to set
      */
-    public void setRows(int rows) {
+    /**public void setRows(int rows) {
         this.rows = rows;
     }
 
     /**
      * @return the colums
      */
-    public int getColumns() {
+    /**public int getColumns() {
         return columns;
     }
 
     /**
      * @param colums the colums to set
      */
-    public void setColumns(int columns) {
+    /**public void setColumns(int columns) {
         this.columns = columns;
     }
 
     /**
      * @return the Matriz
      */
-    public RowMatriz<T> getMatriz() {
+    /**public RowMatriz<T> getMatriz() {
         return Matriz;
     }
 
     /**
      * @param Matriz the Matriz to set
      */
-    public void setMatriz(RowMatriz<T> Matriz) {
+    /**public void setMatriz(RowMatriz<T> Matriz) {
         this.Matriz = Matriz;
     }
     
@@ -88,8 +88,8 @@ public class MatrizSimple<T> {
                 aux=aux.getNext();
             }
             aux.replaceDato(Dato, column);
-            
+
         }
         
-    }
+    }*/
 }

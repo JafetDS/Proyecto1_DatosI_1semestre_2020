@@ -31,16 +31,7 @@ public class PrincipalController implements Initializable {
         System.out.println("You clicked me!");
         label.setText("Hello World!");
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     public void showScene(Stage stage) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("FXMLPrincipal.fxml"));
         Scene scene = new Scene(root);

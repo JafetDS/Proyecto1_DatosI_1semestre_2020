@@ -6,7 +6,7 @@
 package FXeditor;
 import Estructuras.*;
 
-import static com.oracle.jrockit.jfr.ContentType.Class;
+//import static com.oracle.jrockit.jfr.ContentType.Class;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 

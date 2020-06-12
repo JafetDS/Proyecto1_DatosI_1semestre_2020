@@ -16,10 +16,10 @@ import javafx.scene.layout.GridPane;
  * @author User
  */
 public class LogicaGato {
-    private  MatrizSimple<Integer> Matriz;
+    /**private  MatrizSimple<Integer> Matriz;
     
     public LogicaGato(){
-        this.Matriz = new MatrizSimple<>(3,3);    
+        this.Matriz = new MatrizSimple<>(3,3);
     }
     
     public void Rellenar(){
@@ -52,5 +52,5 @@ public class LogicaGato {
     
     
     
-    
+    */
 }
