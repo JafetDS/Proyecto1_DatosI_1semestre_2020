@@ -11,10 +11,6 @@ package Estructuras;
  * @param <T>
  */
 public class NodoListasimple<T> {
-
-    public void setData(T data) {
-        this.data = data;
-    }
  
     
   
@@ -25,8 +21,7 @@ public class NodoListasimple<T> {
      * Constructor del Nodo vacio
      */
     public NodoListasimple(){
-        next=null;     
-        data=null;
+        next=null;        
     }
     /**
      * Método del constructor del Nodo con un dato
@@ -53,9 +48,15 @@ public class NodoListasimple<T> {
             this.next= Next;
            
     }
-     /**
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
+    /**
      * @return next
      */
+
 
     public NodoListasimple<T> getNext() {
         return next;
