@@ -30,6 +30,7 @@ public class MatrizSimple<T> {
         RowMatriz<T> Aux=this.Matriz;    
         for(int i=1; i<rows; i++){
             Aux.setNext(new RowMatriz<>(columns));
+            Aux = Aux.getNext();
         }
     }
 
@@ -55,7 +56,7 @@ public class MatrizSimple<T> {
     }
 
     /**
-     * @param colums the colums to set
+     * @param columns
      */
     public void setColumns(int columns) {
         this.columns = columns;
@@ -90,6 +91,25 @@ public class MatrizSimple<T> {
             aux.replaceDato(Dato, column);
             
         }
+        
+    }
+    
+    public T getDato(int row, int column){
+        if (row>rows){
+            System.out.print("Indice invalido");
+        }
+        else if(column>columns){
+           System.out.print("Indice invalido"); 
+        }
+        else{
+            RowMatriz<T> aux=this.Matriz;
+            for(int i=0; i<row;i++){
+                aux=aux.getNext();
+            }
+            return aux.getInfo(column);
+            
+        }
+        return null;
         
     }
 }

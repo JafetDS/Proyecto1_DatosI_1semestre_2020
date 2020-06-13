@@ -70,15 +70,21 @@ public class ListaSimple<T>{
      * @return 
      */
     public T getInfo(int i){
-        NodoListasimple<T> aux=this.head;
-        int cont=0;
-        while(aux!=null){
-            if(cont==i){
-                return aux.getData();
+       if(i<0){
+           System.out.println("Index incorrecto");
+           return null;
+       }
+       else{
+            NodoListasimple<T> aux=this.head;
+            int cont=0;
+            while(aux!=null){
+                if(cont==i){
+                    return aux.getData();
+                }
+                aux=aux.getNext();
+                cont++;
             }
-            aux=aux.getNext();
-            cont++;
-        }
+       }
     return null;
     }
     /**
@@ -87,12 +93,12 @@ public class ListaSimple<T>{
  
     public void addFirst(){
         if (this.head==null){
-            this.head= new NodoListasimple();
+            this.head= new NodoListasimple<>();
 
         }
         else{
             NodoListasimple<T> temp= this.head;
-            this.head= new NodoListasimple();
+            this.head= new NodoListasimple<>();
             this.head.setNext(temp);
         }
         len++;
@@ -103,11 +109,11 @@ public class ListaSimple<T>{
      */
     public void addFirst(T dato){
         if (this.head==null){
-            this.head= new NodoListasimple(dato);           
+            this.head= new NodoListasimple<>(dato);           
         }
         else{
             NodoListasimple<T> temp= this.head;
-            this.head= new NodoListasimple(dato);
+            this.head= new NodoListasimple<>(dato);
             this.head.setNext(temp);
         }
         len++;
@@ -119,7 +125,7 @@ public class ListaSimple<T>{
         while(aux.getNext()!=null){
             aux=aux.getNext();
         }
-        aux.setNext(new NodoListasimple(dato));
+        aux.setNext(new NodoListasimple<>(dato));
         len++;
     }
 
@@ -145,7 +151,7 @@ public class ListaSimple<T>{
             pos++;
         }
         NodoListasimple<T> temp=aux.getNext();
-        aux.setNext(new NodoListasimple(dato));
+        aux.setNext(new NodoListasimple<>(dato));
         aux.getNext().setNext(temp);
         len++;
     
@@ -181,6 +187,9 @@ public class ListaSimple<T>{
     public void replaceDato(T Dato,int pos){
         if (pos>=this.len){
             System.out.println("indice incorrecto");            
+        }
+        else if(pos<0){
+            System.out.println("indice incorrecto"); 
         }
         else{
             NodoListasimple<T> aux = this.head;
