@@ -5,7 +5,9 @@
  */
 package principal;
 
-import Estructuras.ListaCircular;
+
+import Estructuras.ListaSimple;
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,27 +22,31 @@ public class Principal extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        /*
-        
+       
+
         
         Parent root = FXMLLoader.load(getClass().getResource("FXMLPrincipal.fxml"));
 
         Scene scene = new Scene(root);
+        
+
 
         stage.setScene(scene);
         stage.show();
-        */
-        PrincipalController juego = new PrincipalController();
-        
-        juego.showScene(stage);
+       
+
 }
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+     
+
+ 
+
       
-        System.out.println(args.length);
+     
 
         launch(args); 
         /*
