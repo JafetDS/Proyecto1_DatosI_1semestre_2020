@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package FXeditor;
-import javafx.scene.Node;
+import Estructuras.*;
+
+import static com.oracle.jrockit.jfr.ContentType.Class;
+import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -20,7 +23,6 @@ public class FXeditor {
     public void setElement(GridPane grid,int row,int column,Object object){
         GridEditor.setElement(grid, row, column, object);
     }
-     public Node getElement(GridPane grid,int row,int column){
-        return GridEditor.getElement(grid, row, column);
-     }
+    
+    
 }
