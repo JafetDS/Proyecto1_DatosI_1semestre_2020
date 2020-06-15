@@ -5,7 +5,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 
-public class PPT extends Node {
+public class PPT {
     private String id;
     private String image;
     private Image picture;
