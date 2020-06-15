@@ -12,8 +12,10 @@ public class Verifier {
     Verifier verifier = null;
     ListaSimple<Card> pairs = new ListaSimple<>();
     ListaSimple<Card> cards = new ListaSimple<>();
+
     Verifier(){
     }
+
     public Verifier getVerifier(ListaSimple<Card> cards){
         if (verifier == null){
             verifier = new Verifier();
@@ -48,6 +50,7 @@ public class Verifier {
             pairs.deleteAll();
         }
     }
+
     private boolean isGameOver(){
         for (int i = 0; i < cards.getlen(); i++) {
             if (!cards.getInfo(i).getVisible()){

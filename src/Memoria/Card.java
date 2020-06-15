@@ -23,6 +23,7 @@ public class Card {
     private boolean visible;
     Verifier verifier;
     private ImageView back = new ImageView(new Image("file:images/back.png"));
+
     Card(String id, String image, Verifier verifier){
         this.id = id;
         this.verifier = verifier;
