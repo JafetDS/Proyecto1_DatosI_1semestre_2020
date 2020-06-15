@@ -12,6 +12,7 @@ package Estructuras;
  */
 public class ListaCircular<T>{
     private NodoListasimple<T> head;
+    private NodoListasimple<T> tail;
     private int len;
    
     /**
@@ -20,7 +21,12 @@ public class ListaCircular<T>{
      */
     public ListaCircular(){
         head=null;
+        tail=null;
         len=0;        
+    }
+
+    public NodoListasimple<T> getTail() {
+        return tail;
     }
     
     /**
@@ -45,42 +51,44 @@ public class ListaCircular<T>{
      */
     public void print(){
         NodoListasimple<T> aux= head;
-        while(aux !=null){
+        while(aux.getNext()!=this.head){
             System.out.println(aux.getData());
             aux=aux.getNext();
             
         }
-    
+        System.out.println(aux.getData());
     }
     public NodoListasimple<T> getNodo(int pos){
-        NodoListasimple<T> aux=this.head;
-        int cont=0;
-        while(aux!=null){
-            if(cont==pos){
-                return aux;
-            }
-            aux=aux.getNext();
-            cont++;
+        if(pos==0){
+            return this.head;
         }
-    return null;
+        else{
+            NodoListasimple<T> aux=this.head;
+            for(int i = 0 ; i<pos; i++){
+                aux=aux.getNext();
+            }
+            return aux;
+        }
+        
     }
    
     /**
      * Metodo para conseguir el valor de una posición de la lista
-     * @param i
+     * @param pos
      * @return 
      */
-    public T getInfo(int i){
-        NodoListasimple<T> aux=this.head;
-        int cont=0;
-        while(aux!=null){
-            if(cont==i){
-                return aux.getData();
-            }
-            aux=aux.getNext();
-            cont++;
+    public T getInfo(int pos){
+        if (pos==0){
+            return this.head.getData();
         }
-    return null;
+        else{
+            NodoListasimple<T> aux=this.head;
+            for(int i=0; i<pos ; i++){
+                aux = aux.getNext();
+            }
+            return aux.getData();
+        }
+
     }
     /**
      * Metodo para agregar un espacio vacio al inicio de la lista
@@ -104,15 +112,17 @@ public class ListaCircular<T>{
      */
     public void addFirst(T dato){
         if (this.head==null){
-            NodoListasimple<T> temp =  new NodoListasimple<>(dato);
-            temp.setNext(this.head);
+            NodoListasimple<T> temp = new NodoListasimple<>(dato);
             this.head = temp;
+            this.tail = temp;
+            temp.setNext(head);
             
         }
         else {
             NodoListasimple<T> temp = this.head;
             this.head = new NodoListasimple<>(dato);
             this.head.setNext(temp);
+            this.tail.setNext(this.head);
             
 
         }
@@ -122,39 +132,40 @@ public class ListaCircular<T>{
     
     
     public void addLast(T dato){
-        NodoListasimple<T> aux= this.head;
-        while(aux.getNext()!=null){
-            aux=aux.getNext();
+        if (this.head==null){
+            this.addFirst(dato);
         }
-        aux.setNext(new NodoListasimple<>(dato));
-        aux=aux.getNext();
-        aux.setNext(this.head);
-        len++;
+        else{
+            NodoListasimple<T> temp = this.tail;
+            this.tail = new NodoListasimple<>(dato);
+            this.tail.setNext(head);
+            temp.setNext(this.tail);
+            len++;
+        }
     }
 
     /**
      * Metodo para agregar un dato a una posicion dada de la lista
      * @param i 
+     * @param pos 
      * @param dato 
      */
 
-    public void addPos(int i,T dato){
+    public void setData(T dato,int pos){
         
-        if (i==0){
+        if (pos==0){
            addFirst(dato);         
         }
-        else if (this.len%i==0){
+        else if (this.len%pos==0){
             addLast(dato);           
         }
         else{
             NodoListasimple<T> aux=this.head;
-            for(int pos=1;pos<i;pos++){
+            for(int i=0;i<pos;i++){
                 aux=aux.getNext();
             }
-            NodoListasimple<T> temp=aux.getNext();
-            aux.setNext(new NodoListasimple<>(dato));
-            aux.getNext().setNext(temp);
-            len++;
+            aux.setData(dato);
+          
         }
     
     }

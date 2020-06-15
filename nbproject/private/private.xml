@@ -5,9 +5,10 @@
         <group>
             <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/principal/PrincipalController.java</file>
             <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/principal/FXMLPrincipal.fxml</file>
-            <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/gato/gatoFXML.fxml</file>
+            <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/principal/Jugador.java</file>
             <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/gato/gatoFXMLController.java</file>
-            <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/gato/Prueba3Controller.java</file>
+            <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/gato/LogicaGato.java</file>
+            <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/principal/Casilla.java</file>
         </group>
     </open-files>
 </project-private>

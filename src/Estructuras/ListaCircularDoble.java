@@ -17,7 +17,7 @@ public class ListaCircularDoble<T> {
 
     public ListaCircularDoble() {
         this.head = null;
-        this.tail= new NodoListadoble<>();
+        this.tail= null;
         this.len = 0;
     }
     private void configure(){
@@ -53,7 +53,7 @@ public class ListaCircularDoble<T> {
      * Metodo para hacer un print de los elementos dwe la lista 
      */
     public void print(){
-        NodoListadoble<T> aux= head;
+        Nodo<T> aux= head;
         while(aux !=this.tail){
             System.out.println(aux.getData());
             aux=aux.getNext();                     
@@ -64,10 +64,10 @@ public class ListaCircularDoble<T> {
      * Metodo para hacer un print de atras para adelante (invrtido) de los elementos dwe la lista 
      */
     public void pintinvr(){
-        NodoListadoble<T> aux= this.tail;
+        Nodo<T> aux= this.tail;
         while(aux !=null){
             System.out.println(aux.getData());
-            aux=aux.getPrevius();           
+         //   aux=aux.getPrevius();           
         }         
     }
     
@@ -76,17 +76,18 @@ public class ListaCircularDoble<T> {
      * @param pos
      * @return NodoListaDoble
      */
-    public NodoListadoble<T> getNodo(int pos){
-        NodoListadoble<T> aux=this.head;
-        int cont=0;
-        while(aux!=null){
-            if(cont==pos){
-                return aux;
-            }
-            aux=aux.getNext();
-            cont++;
+    public Nodo<T> getNodo(int pos){
+        if (pos==0){
+            return this.head;
         }
-    return null;
+        else{
+            Nodo<T> aux=this.head;
+            for(int i =0 ; i<pos ;i++){
+                aux = aux.getNext();
+            }
+            return aux;
+        }
+    
     }
    
     /**
@@ -95,7 +96,7 @@ public class ListaCircularDoble<T> {
      * @return T
      */
     public T getInfo(int i){
-        NodoListadoble<T> aux=this.head;
+        Nodo<T> aux=this.head;
         int cont=0;
         while(aux!=null){
             if(cont==i){
@@ -113,35 +114,41 @@ public class ListaCircularDoble<T> {
      */
     public void addFirst(T dato){
         if (this.head==null){
-            this.head= new NodoListadoble(dato); 
-            this.head.setNext(this.tail);
-            this.tail.setPrevius(this.head);
+            NodoListadoble<T> temp = new NodoListadoble<>(dato);
+            this.head = temp;
+            this.tail = temp;
+            temp.setNext(head);
+            
         }
-        else{
-            NodoListadoble<T> temp= this.head;
-            this.head= new NodoListadoble(dato);
+        else {
+            NodoListadoble<T> temp = this.head;
+            this.head = new NodoListadoble<>(dato);
             this.head.setNext(temp);
             temp.setPrevius(this.head);
+            this.head.setPrevius(this.tail);
+            this.tail.setNext(this.head);
+            
+
         }
-        configure();
         len++;
     }
+    
      /**
      * Metodo para agregar un dato al final de la Lista
      * @param dato 
      */
     public void addLast(T dato){
-        if (this.len==0){
-           this.tail=new NodoListadoble(dato);
-           this.tail.setPrevius(this.head);
-           this.head.setNext(this.tail);
+        if (this.head==null){
+           this.addFirst(dato);
           
         }
         else{
             NodoListadoble<T> temp =this.tail;
-            this.tail= new NodoListadoble(dato);
+            this.tail= new NodoListadoble<>(dato);
             this.tail.setPrevius(temp);
             temp.setNext(this.tail);
+            this.head.setPrevius(this.tail);
+            this.tail.setNext(this.head);
                      
         }
         len++;
@@ -153,7 +160,7 @@ public class ListaCircularDoble<T> {
      * Metodo para eliminar el primer elemento 
      */
     private void removeFirst(){
-        this.head=this.head.getNext();
+        this.head=(NodoListadoble<T>) this.head.getNext();
         len--;
         configure();
     }
@@ -162,7 +169,7 @@ public class ListaCircularDoble<T> {
      * Metodo para eliminar el ultimo elemento 
      */
     private void removeLast(){
-        this.tail=this.tail.getPrevius();
+        this.tail=(NodoListadoble<T>) this.tail.getPrevius();
         len--;
         configure();
     }
@@ -185,10 +192,10 @@ public class ListaCircularDoble<T> {
             int pos = 1;
             NodoListadoble<T> aux=this.head;
             while(pos<i){
-                aux=aux.getNext();
+                aux=(NodoListadoble<T>) aux.getNext();
                 pos++;
             }
-            NodoListadoble<T> temp=aux.getNext();
+            Nodo<T> temp=aux.getNext();
             aux.setNext(new NodoListadoble(dato));
             aux.getNext().setNext(temp);
             aux.getNext().setPrevius(aux);
@@ -217,7 +224,7 @@ public class ListaCircularDoble<T> {
         else if (pos<(this.getLen())/2 ){
             NodoListadoble<T> aux=this.head;
             for (int cont=0;cont<pos; cont++){              
-                aux= aux.getNext();
+                aux= (NodoListadoble<T>) aux.getNext();
             }
             aux.getPrevius().setNext(aux.getNext());
             aux.getNext().setPrevius(aux.getPrevius());
@@ -226,7 +233,7 @@ public class ListaCircularDoble<T> {
         else if(pos>(this.getLen())/2 ){
           NodoListadoble<T> aux=this.head;  
           for (int cont=len-1;cont>pos; cont--){              
-               aux= aux.getPrevius();
+               aux= (NodoListadoble<T>) aux.getPrevius();
           }
           aux.getPrevius().setNext(aux.getNext());
           aux.getNext().setPrevius(aux.getPrevius());

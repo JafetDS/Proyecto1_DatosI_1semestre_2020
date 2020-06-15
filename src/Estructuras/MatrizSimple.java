@@ -12,7 +12,7 @@ package Estructuras;
  * @param <T>
  * 
  */
-public class MatrizSimple<T> {
+public class MatrizSimple<T> extends ListaSimple<T>{
     private int rows;
     private int columns;
     private RowMatriz<T> Matriz;

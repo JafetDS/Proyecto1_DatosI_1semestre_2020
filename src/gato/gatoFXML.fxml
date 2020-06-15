@@ -9,7 +9,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gato.gatoFXMLController">
    <children>
-      <Button layoutX="14.0" layoutY="47.0" mnemonicParsing="false" onAction="#Prueba" text="Button" />
+      <Button layoutX="14.0" layoutY="47.0" mnemonicParsing="false" onAction="#verGanador" text="Button" />
       <GridPane fx:id="Grid" gridLinesVisible="true" layoutX="89.0" layoutY="32.0" prefHeight="540.0" prefWidth="586.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

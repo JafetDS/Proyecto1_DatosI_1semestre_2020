@@ -16,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
@@ -28,6 +29,7 @@ import javafx.stage.Stage;
 public class gatoFXMLController implements Initializable  { 
     private LogicaGato logica;
     private String Winner;
+
 
     @FXML
     private AnchorPane anchorPane;
@@ -59,7 +61,22 @@ public class gatoFXMLController implements Initializable  {
 */
       
     }
-    
+
+    public void verGanador(){
+      
+        Thread thread2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while(true) {
+
+                    System.out.println("Papas");
+                }
+            }
+        });
+
+
+        
+    }
     public String getWinner(){
         return this.Winner;
 

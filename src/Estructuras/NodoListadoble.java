@@ -10,10 +10,10 @@ package Estructuras;
  * @author User
  * @param <T>
  */
-public class NodoListadoble<T> {
+public class NodoListadoble<T> extends Nodo<T>{
     private T data;    
-    private NodoListadoble<T> next;
-    private NodoListadoble<T> previus;
+    private Nodo<T> next;
+    private Nodo<T> previus;
     
     /**
      * Constructor del Nodo vacio
@@ -33,6 +33,7 @@ public class NodoListadoble<T> {
      * Método para obtener el dato almacenado en el Nodo
      * @return 
      */
+    @Override
     public T getData(){
         return this.data; 
        
@@ -60,7 +61,8 @@ public class NodoListadoble<T> {
      * 
      */
 
-    public NodoListadoble<T> getNext() {
+    @Override
+    public Nodo<T> getNext() {
         return next;
     }
     
@@ -70,7 +72,8 @@ public class NodoListadoble<T> {
      * @param Next 
      */
     
-    public void setNext(NodoListadoble<T> Next){
+    @Override
+    public void setNext(Nodo<T> Next){
             this.next= Next;
            
     }
@@ -78,7 +81,7 @@ public class NodoListadoble<T> {
      * devuelve el nodo anterior
      * @return previus
      */
-    public NodoListadoble<T> getPrevius() {
+    public Nodo<T> getPrevius() {
         return previus;
     }
      /**
@@ -86,7 +89,8 @@ public class NodoListadoble<T> {
      * @param previus
      */
 
-    public void setPrevius(NodoListadoble<T> previus) {
+    @Override
+    public void setPrevius(Nodo<T> previus) {
         this.previus = previus;
     }
     

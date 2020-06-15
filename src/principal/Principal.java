@@ -6,10 +6,14 @@
 package principal;
 
 
+import Estructuras.ListaCircular;
+import Estructuras.ListaDoble;
 import Estructuras.ListaSimple;
+import Estructuras.Nodo;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -49,27 +53,41 @@ public class Principal extends Application {
      
 
         launch(args); 
-        /*
-        
-        ListaCircular<Integer> ListaCirDo = new ListaCircular<>();
+
+    /*
+        ListaDoble<Jugador> Jugadores = new ListaDoble<>();
 
         
-        ListaCirDo.addFirst(1);
-        ListaCirDo.addFirst(6);
-        ListaCirDo.addFirst(3);
-        ListaCirDo.addFirst(8);
-        ListaCirDo.addFirst(12);
-        ListaCirDo.addFirst(16);
-        ListaCirDo.addFirst(4);
-        ListaCirDo.addFirst(5);
-        ListaCirDo.remove(3);
         
-        ListaCirDo.addLast(9);
-        ListaCirDo.addPos(5,77);
-        ListaCirDo.print();
-      */
-       
-    }
+        Jugador jug1 = new Jugador("Juan");
+        System.out.println(jug1);
+        System.out.println();
+        Jugador jug2 = new Jugador("Pepe");
+        Jugador jug3 = new Jugador("Luis");
+        Jugador jug4 = new Jugador("Luis");
+        
+        Jugadores.addLast(jug1);
+        Jugadores.addLast(jug2);
+        Jugadores.addLast(jug3);
+        Jugadores.addLast(jug4);
+        
+        System.out.println(Jugadores.getTail().getData());
+        System.out.println();
+        
+        
+        Nodo<Jugador> aux = Jugadores.getTail();
+        
+        
+        while(aux!=null){
+            System.out.println(aux.getData());
+            aux= aux.getPrevius();
+        }
+            System.out.println("Termino");
+        
+     ///   Jugadores.print();
    
+     */  
+    }
+  
     
 }

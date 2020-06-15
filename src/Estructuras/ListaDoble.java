@@ -46,15 +46,21 @@ public class ListaDoble<T>{
     }
 
 
-    
+    public void setDato(T dato,int pos){
+        NodoListadoble<T> aux= head;
+        for (int i =0; i<pos ; i++){
+            aux = (NodoListadoble<T>) aux.getNext();
+        }
+        aux.setData(dato);
+    }
      /**
      * Metodo para hacer un print de los elementos dwe la lista 
      */
     public void print(){
         NodoListadoble<T> aux= head;
-        while(aux !=null){
+        while(aux !=this.tail){
             System.out.println(aux.getData());
-            aux=aux.getNext();                     
+            aux=(NodoListadoble<T>) aux.getNext();                     
         }      
     }
     
@@ -65,7 +71,7 @@ public class ListaDoble<T>{
         NodoListadoble<T> aux= this.tail;
         while(aux !=null){
             System.out.println(aux.getData());
-            aux=aux.getPrevius();           
+            aux=(NodoListadoble<T>) aux.getPrevius();           
         }         
     }
     
@@ -75,34 +81,32 @@ public class ListaDoble<T>{
      * @return NodoListaDoble
      */
     public NodoListadoble<T> getNodo(int pos){
-        NodoListadoble<T> aux=this.head;
-        int cont=0;
-        while(aux!=null){
-            if(cont==pos){
-                return aux;
+        if (pos== 0){
+            return this.head;
+        }else{
+            NodoListadoble<T> aux = this.head;
+            for(int i = 0 ; i<pos ; i++){
+                aux= (NodoListadoble<T>) aux.getNext();
             }
-            aux=aux.getNext();
-            cont++;
+            return  aux;
         }
-    return null;
+       
     }
    
     /**
      * Metodo para conseguir el valor de una posición de la lista
-     * @param i
+     * @param pos
      * @return T
      */
-    public T getInfo(int i){
-        NodoListadoble<T> aux=this.head;
-        int cont=0;
-        while(aux!=null){
-            if(cont==i){
-                return aux.getData();
-            }
-            aux=aux.getNext();
-            cont++;
+    public T getInfo(int pos){
+        if (pos== 0){
+            return this.head.getData();
         }
-    return null;
+        NodoListadoble<T> aux=this.head;
+        for(int i = 0 ; i<pos; i++){
+            aux= (NodoListadoble<T>) aux.getNext();
+        }
+        return aux.getData();
     }
 
     /**
@@ -111,13 +115,14 @@ public class ListaDoble<T>{
      */
     public void addFirst(T dato){
         if (this.head==null){
-            this.head= new NodoListadoble(dato); 
-            this.head.setNext(this.tail);
-            this.tail.setPrevius(this.head);
+            NodoListadoble<T> Temp = new NodoListadoble<>(dato); 
+            this.head = Temp;
+            this.tail = Temp;
+
         }
         else{
             NodoListadoble<T> temp= this.head;
-            this.head= new NodoListadoble(dato);
+            this.head= new NodoListadoble<>(dato);
             this.head.setNext(temp);
             temp.setPrevius(this.head);
         }
@@ -128,15 +133,13 @@ public class ListaDoble<T>{
      * @param dato 
      */
     public void addLast(T dato){
-        if (this.len==0){
-           this.tail=new NodoListadoble(dato);
-           this.tail.setPrevius(this.head);
-           this.head.setNext(this.tail);
+        if (this.head==null){
+            this.addFirst(dato);
           
         }
         else{
             NodoListadoble<T> temp =this.tail;
-            this.tail= new NodoListadoble(dato);
+            this.tail= new NodoListadoble<>(dato);
             this.tail.setPrevius(temp);
             temp.setNext(this.tail);
                      
@@ -149,7 +152,7 @@ public class ListaDoble<T>{
      * Metodo para eliminar el primer elemento 
      */
     private void removeFirst(){
-        this.head=this.head.getNext();
+        this.head=(NodoListadoble<T>) this.head.getNext();
         this.head.setPrevius(null);
         len--;
     }
@@ -158,7 +161,7 @@ public class ListaDoble<T>{
      * Metodo para eliminar el ultimo elemento 
      */
     private void removeLast(){
-        this.tail=this.tail.getPrevius();
+        this.tail=(NodoListadoble<T>) this.tail.getPrevius();
         this.tail.setNext(null);
         len--;
     }
@@ -180,11 +183,11 @@ public class ListaDoble<T>{
         int pos = 1;
         NodoListadoble<T> aux=this.head;
         while(pos<i){
-            aux=aux.getNext();
+            aux=(NodoListadoble<T>) aux.getNext();
             pos++;
         }
-        NodoListadoble<T> temp=aux.getNext();
-        aux.setNext(new NodoListadoble(dato));
+        NodoListadoble<T> temp=(NodoListadoble<T>) aux.getNext();
+        aux.setNext(new NodoListadoble<>(dato));
         aux.getNext().setNext(temp);
         aux.getNext().setPrevius(aux);
         temp.setPrevius(aux.getNext());
@@ -211,7 +214,7 @@ public class ListaDoble<T>{
         else if (pos<(this.getLen())/2 ){
             NodoListadoble<T> aux=this.head;
             for (int cont=0;cont<pos; cont++){              
-                aux= aux.getNext();
+                aux= (NodoListadoble<T>) aux.getNext();
             }
             aux.getPrevius().setNext(aux.getNext());
             aux.getNext().setPrevius(aux.getPrevius());
@@ -220,7 +223,7 @@ public class ListaDoble<T>{
         else if(pos>(this.getLen())/2 ){
           NodoListadoble<T> aux=this.head;  
           for (int cont=len-1;cont>pos; cont--){              
-               aux= aux.getPrevius();
+               aux= (NodoListadoble<T>) aux.getPrevius();
           }
           aux.getPrevius().setNext(aux.getNext());
           aux.getNext().setPrevius(aux.getPrevius());

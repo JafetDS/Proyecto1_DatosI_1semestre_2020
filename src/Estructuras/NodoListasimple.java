@@ -10,7 +10,7 @@ package Estructuras;
  * @author User
  * @param <T>
  */
-public class NodoListasimple<T> {
+public class NodoListasimple<T> extends Nodo<T>{
  
     
   
@@ -49,6 +49,7 @@ public class NodoListasimple<T> {
            
     }
 
+    @Override
     public void setData(T data) {
         this.data = data;
     }
@@ -58,6 +59,7 @@ public class NodoListasimple<T> {
      */
 
 
+    @Override
     public NodoListasimple<T> getNext() {
         return next;
     }
