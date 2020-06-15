@@ -50,26 +50,12 @@ public class MemoryGame extends Application {
         return root;
     }
 
-    /**
-     * public void close(String ) {
-     * FadeTransition ft = new FadeTransition(Duration.seconds(0.5), label);
-     * ft.setToValue(0);
-     * ft.play();
-     * }
-     */
-
 
     @Override
     public void start(Stage Stage) throws Exception {
         Stage.setScene(new Scene(createContent()));
         Stage.show();
 
-        /**Parent root = FXMLLoader.load(getClass().getResource("Memory.fxml"));
-
-         Scene scene = new Scene(root);
-
-         stage.setScene(scene);
-         stage.show();*/
     }
 
     public ListaSimple<String> getURLs() {
