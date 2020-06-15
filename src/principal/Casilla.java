@@ -6,16 +6,20 @@
 package principal;
 
 import Estructuras.Nodo;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 
 /**
  *
@@ -31,7 +35,9 @@ public class Casilla {
    private boolean desvio;
    private Nodo<Casilla> fase;
    private boolean invert;
-   
+   private boolean Star;
+
+
   
    
 
@@ -54,12 +60,33 @@ public class Casilla {
         Construir_Casilla();
     }
    
+    
+    public boolean isStar() {
+        return Star;
+    }
+
+    public void setStar(boolean Star) {
+        this.Star = Star;
+    }
+   
     private void Construir_Casilla(){
      //  this.pane.setPrefSize(180, 160);
-        if (image==null){
-            this.pane.setStyle("-fx-background-color: " + color);
-        }else{
-            this.pane.setBackground(new Background(new BackgroundImage(this.image,BackgroundRepeat.REPEAT,BackgroundRepeat.NO_REPEAT,BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT)));
+        if ("Blue".equals(this.color)){
+            this.pane.setBackground(new Background(new BackgroundFill(Color.BLUE, CornerRadii.EMPTY, Insets.EMPTY)));
+            this.pane.setStyle("-fx-border-color: Black" );
+        }
+        else if("Red".equals(this.color)){
+            this.pane.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
+            this.pane.setStyle("-fx-border-color: Black" );
+        }
+        else if("Green".equals(this.color)){
+            this.pane.setBackground(new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY)));
+            this.pane.setStyle("-fx-border-color: Black" );
+        }
+        
+        else{
+            this.pane.setBackground(new Background(new BackgroundFill(Color.YELLOW, CornerRadii.EMPTY, Insets.EMPTY)));
+            this.pane.setStyle("-fx-border-color: Black" );
         }
     }
    

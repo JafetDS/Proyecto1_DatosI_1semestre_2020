@@ -45,6 +45,7 @@ import javafx.scene.control.DialogEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -75,20 +76,35 @@ public class PrincipalController implements Initializable {
     private ListaCircularDoble<Casilla> FaseD;
 
     private NodoListasimple<Jugador> Turno;
-    
+    private int subturno;
+    private int ronda;
     private String info;
+    private Button estreB;
+    private Image estrella = new Image("file:src/MultimediaGato/estrellita.png",50,50,false,true);
     private Image image = new Image("file:src/MultimediaGato/check.png",50,50,false,true);
     private Image image1 = new Image("file:src/MultimediaGato/check.png",50,50,false,true);
     private Image image2 = new Image("file:src/MultimediaGato/equis.png",50,50,false,true);
     private Image image3 = new Image("file:src/MultimediaGato/equis.png",50,50,false,true);
     private Image image4 = new Image("file:src/MultimediaGato/equis.png",50,50,false,true);
     @FXML
+    public Label Dado1;
+    public Label Dado2;
     private Label label;
     private Button button;
     private AnchorPane anchorPane;
     private Button dados;
-   
+    public Label R1;
+    public Label R2;
+    public Label R3;
+    public Label R4;
+    
+    public Label T1;
+    public Label T2;
+    public Label T3;
+    public Label T4;
+    
     public GridPane Tablero;
+    
     
     
     
@@ -102,6 +118,12 @@ public class PrincipalController implements Initializable {
         this.FaseD = new ListaCircularDoble<>();
         this.Colors = new ListaSimple<>();
         this.pilaEventos = new Pila_stack<>();
+        
+        ImageView iv1=new ImageView(estrella);
+
+        this.subturno =0;
+        this.ronda =0;
+        this.estreB=new Button("",iv1);
     }
     /**
     public PrincipalController() throws IOException {
@@ -127,6 +149,12 @@ public class PrincipalController implements Initializable {
         Button but3 = new Button();
         Button but4 = new Button();
         Button but5 = new Button();
+        
+        but.setOnAction(e->Actualizar(e ));
+        but2.setOnAction(e->Actualizar(e ));
+        but3.setOnAction(e->Actualizar(e ));
+        but4.setOnAction(e->Actualizar(e ));
+        
         but5.setStyle("-fx-background-color: blue");
         HBox hbox = new HBox();
         hbox.getChildren().add(but);
@@ -141,10 +169,10 @@ public class PrincipalController implements Initializable {
         
         
         
-        Jugador jug1 = new Jugador("Juan");
-        Jugador jug2 = new Jugador("Pepe");
-        Jugador jug3 = new Jugador("Luis");
-        Jugador jug4 = new Jugador("Solis");
+        Jugador jug1 = new Jugador("Player1");
+        Jugador jug2 = new Jugador("Player2");
+        Jugador jug3 = new Jugador("Player3");
+        Jugador jug4 = new Jugador("Player3");
         
         this.Jugadores.addLast(jug1);
         this.Jugadores.addLast(jug2);
@@ -170,7 +198,7 @@ public class PrincipalController implements Initializable {
         
         
         
-        
+         generateColors();
         generateTablero();
         
         graficarCaminoA();
@@ -178,7 +206,7 @@ public class PrincipalController implements Initializable {
         graficarCaminoC();
         graficarCaminoD();
         setTransitionNode();
-        generateColors();
+       
         
         generatePila();
         
@@ -206,15 +234,52 @@ public class PrincipalController implements Initializable {
         System.out.println(num2);
         
         this.Turno.getData().avanzar(num2+num1);
+        Dado1.setText(Integer.toString(num1));
+        Dado2.setText(Integer.toString(num2));
         //this.Turno.getData().avanzar(4);
         this.Turno = this.Turno.getNext();
+        this.subturno +=1;
+        if (this.subturno==4){
+            this.subturno=0;
+            this.ronda+=1;
+            
+        }
+        
+        if(this.ronda>1){
+            setEstrella();
+        }
+        
     }
         
+    public void setEstrella(){
+        int num=this.random(50);
+        this.caminoPrincipal.getInfo(num).setStar(true);
+        this.caminoPrincipal.getInfo(num).getPane().getChildren().add(this.estreB);
+        
+    }
+    
     
     public void evento(){
+        Evento eve=this.pilaEventos.pop().getData();
+        eve.start(this.Turno.getData(), Jugadores);
         
     }
     
+    private void Actualizar(ActionEvent e){
+        this.R1.setText(Integer.toOctalString(this.Jugadores.getInfo(0).getMonedas()));
+        this.R2.setText(Integer.toOctalString(this.Jugadores.getInfo(1).getMonedas()));
+        this.R3.setText(Integer.toOctalString(this.Jugadores.getInfo(2).getMonedas()));
+        this.R4.setText(Integer.toOctalString(this.Jugadores.getInfo(3).getMonedas()));
+        
+        this.T1.setText(Integer.toOctalString(this.Jugadores.getInfo(0).getEstrellas()));
+        this.T2.setText(Integer.toOctalString(this.Jugadores.getInfo(1).getEstrellas()));
+        this.T3.setText(Integer.toOctalString(this.Jugadores.getInfo(2).getEstrellas()));
+        this.T4.setText(Integer.toOctalString(this.Jugadores.getInfo(3).getEstrellas()));
+        
+        
+        
+    }
+  
     
     
     public void Print(){
@@ -303,13 +368,13 @@ public class PrincipalController implements Initializable {
     private void graficarCaminoC(){
         
         for(int i = 13 ; i!=9 ; i--){
-            Casilla casilla = new Casilla (image3,this.Colors.getInfo(random(30)));
+            Casilla casilla = new Casilla (this.Colors.getInfo(random(30)));
             Tablero.add(casilla.getPane(), 9, i);
             this.FaseC.addLast(casilla);
         }
         
         for(int i = 10 ; i<14 ; i++){
-            Casilla casilla = new Casilla (image3,this.Colors.getInfo(random(30)));
+            Casilla casilla = new Casilla (this.Colors.getInfo(random(30)));
             Tablero.add(casilla.getPane(), i, 10);
             this.FaseC.addLast(casilla);
         }
@@ -319,26 +384,26 @@ public class PrincipalController implements Initializable {
     
     private void graficarCaminoD(){
         for(int i = 3; i<8; i++){
-            Casilla casilla = new Casilla (image4,this.Colors.getInfo(random(30)));
+            Casilla casilla = new Casilla ("Yellow");
             Tablero.add(casilla.getPane(), 8, i);
             this.FaseD.addLast(casilla);
         }
         
         for (int i= 9; i<12;i++){
-            Casilla casilla = new Casilla (image4,"Yellow");
+            Casilla casilla = new Casilla ("Yellow");
             Tablero.add(casilla.getPane(), i, 7);
             this.FaseD.addLast(casilla);
         }
         
                 
         for (int i= 7; i>2;i--){
-            Casilla casilla = new Casilla (image4,"Yellow");
+            Casilla casilla = new Casilla ("Yellow");
             Tablero.add(casilla.getPane(), 12, i);
             this.FaseD.addLast(casilla);
         }
         
         for (int i= 11; i>8;i--){
-            Casilla casilla = new Casilla (image4,"Yellow");
+            Casilla casilla = new Casilla ("Yellow");
             Tablero.add(casilla.getPane(), i, 3);
             this.FaseD.addLast(casilla);
         }
@@ -346,25 +411,25 @@ public class PrincipalController implements Initializable {
     }
     private void generateTablero(){
         for (int i = 13 ; i!=-1; i--) {
-            Casilla casilla = new Casilla (image,this.Colors.getInfo(random(30)));
+            Casilla casilla = new Casilla (this.Colors.getInfo(random(30)));
             Tablero.add(casilla.getPane(), i, 14);
             this.caminoPrincipal.addLast(casilla);
         }
         
         for (int i = 13; i!=-1; i-- ){
-            Casilla casilla = new Casilla (image,this.Colors.getInfo(random(30)));
+            Casilla casilla = new Casilla (this.Colors.getInfo(random(30)));
             Tablero.add(casilla.getPane(), 0, i);
              this.caminoPrincipal.addLast(casilla);
         }
         
         for (int i= 1; i<15 ; i++){
-            Casilla casilla = new Casilla (image,this.Colors.getInfo(random(30)));
+            Casilla casilla = new Casilla (this.Colors.getInfo(random(30)));
             Tablero.add(casilla.getPane(), i, 0);
             this.caminoPrincipal.addLast(casilla);
         }
         
         for (int i= 1; i<14 ; i++){
-            Casilla casilla = new Casilla (image,this.Colors.getInfo(random(30)));
+            Casilla casilla = new Casilla (this.Colors.getInfo(random(30)));
             Tablero.add(casilla.getPane(), 14, i);
             this.caminoPrincipal.addLast(casilla);
         }
