@@ -14,10 +14,17 @@ public class Verifier {
     private int victorias1 = 0;
     private int victorias2 = 0;
 
+    /**
+     * Constructor del verificador
+     */
     Verifier(){
     }
 
-    public void empezarjuego(ImageView vs, Label label) {
+    /**
+     * Hace una secuencia de mensajes, para que luego los jugadores seleccionen su jugada
+     * @param vs
+     */
+    public void empezarjuego(ImageView vs) {
         ListaSimple<String> mensajes = new ListaSimple<>();
 
         //Añade los mensajes de inicio de juego
@@ -34,7 +41,6 @@ public class Verifier {
             //Da los mensajes de inicio de juego para poder jugar
             for (int i = 0; i < mensajes.getlen() && playagain; i++){
                 System.out.println(mensajes.getInfo(i));
-                label.setText(mensajes.getInfo(i));
                 try {
                     Thread.sleep(500);
                 } catch (InterruptedException e) {
@@ -47,6 +53,12 @@ public class Verifier {
     }
 
 
+    /**
+     * Compara la opcion de cada jugador y define un ganador de cada ronda, o partida
+     * @param opcion1
+     * @param opcion2
+     * @param tabla
+     */
     public void opciones(PPT opcion1, PPT opcion2, Label tabla){
         if (victorias2 == 2){
             System.out.println("Jugador 2 es el ganador");
@@ -90,6 +102,11 @@ public class Verifier {
         tabla.setText(victorias1 + " - " + victorias2);
 
     }
+
+    /**
+     * Verifica cuantas rondas se han jugado, para asi definir cuantas rondas quedan o si ya el juego termino
+     * @return
+     */
     public boolean playAgain(){
         if (victorias1 < 2 && victorias2 < 2){
             play = false;

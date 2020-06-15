@@ -13,6 +13,11 @@ import principal.Jugador;
  * @author User
  */
 public class eventRobarMonedas extends Evento{
+    /**
+     * El jugador que activa el evento selecciona a otro jugador para robarle una estrella
+     * @param turno
+     * @param Jugadores
+     */
     @Override
     public void start(Jugador turno,ListaCircular<Jugador> Jugadores){
         Jugador victima = Jugadores.getInfo(this.random(4));

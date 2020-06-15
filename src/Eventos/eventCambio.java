@@ -10,11 +10,13 @@ import Estructuras.Nodo;
 import principal.Casilla;
 import principal.Jugador;
 
-/**
- *
- * @author User
- */
+
 public class eventCambio extends Evento{
+    /**
+     * Función para asignar 1 jugador al azar, para intercambiarlo con el jugador que activo el evento
+     * @param turno
+     * @param Jugadores
+     */
     @Override
     public void start(Jugador turno,ListaCircular<Jugador> Jugadores){
         Jugador victima = Jugadores.getInfo(this.random(4));

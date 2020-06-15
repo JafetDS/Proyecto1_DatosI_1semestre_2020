@@ -35,10 +35,17 @@ public class gatoFXMLController implements Initializable  {
     private AnchorPane anchorPane;
     public GridPane Grid;
 
+    /**
+     * Constructor del gato
+     */
     public gatoFXMLController() {
     }
-    
 
+
+    /**
+     * Inicia el juego, ocn los jugadores respectivos
+     * @param e
+     */
     @FXML
     public void Prueba(ActionEvent e) {
         logica= new LogicaGato("Juan", "Luis");
@@ -62,6 +69,9 @@ public class gatoFXMLController implements Initializable  {
       
     }
 
+    /**
+     * Verifica si el juego esta ejecutandose
+     */
     public void verGanador(){
       
         Thread thread2 = new Thread(new Runnable() {
@@ -69,7 +79,7 @@ public class gatoFXMLController implements Initializable  {
             public void run() {
                 while(true) {
 
-                    System.out.println("Papas");
+                    System.out.println("Exe");
                 }
             }
         });
@@ -82,13 +92,21 @@ public class gatoFXMLController implements Initializable  {
 
         
     }
-    
+
+    /**
+     * Destruye el juego, una vez termine
+     */
     public void close(){
         Stage stage=(Stage)this.anchorPane.getScene().getWindow();
         stage.close();
     }
 
-    
+
+    /**
+     * Carga el FXML de Scene Builder
+     * @return
+     * @throws IOException
+     */
     public FXMLLoader getLoader() throws IOException{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("gatoFXML.fxml")); 
@@ -118,7 +136,7 @@ public class gatoFXMLController implements Initializable  {
         
     }
     
-        /**
+    /**
      * Initializes the controller class.
      * @param url
      * @param rb

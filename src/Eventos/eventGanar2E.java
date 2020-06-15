@@ -13,6 +13,11 @@ import principal.Jugador;
  * @author User
  */
 public class eventGanar2E extends Evento {
+    /**
+     * El jugador que activo el evento, gana 2 estrellas
+     * @param turno
+     * @param Jugadores
+     */
     @Override
     public void start(Jugador turno,ListaCircular<Jugador> Jugadores){
         turno.sumEstrellas(2);

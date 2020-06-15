@@ -40,8 +40,12 @@ public class LogicaGato {
     
     public String Winner = "none";
 
-    
-    
+
+    /**
+     * Ejecuta el juego con ambos jugadores
+     * @param Player1
+     * @param Player2
+     */
     public LogicaGato(String Player1, String Player2) {
         this.Player1 = Player1;
         this.Player2 = Player2;
@@ -50,7 +54,10 @@ public class LogicaGato {
         initializeLists();
      
     }
-    
+
+    /**
+     * Inicializa el tablero del gato
+     */
     private void initializeLists(){
         for (int i = 0 ; i<6; i++){
             this.filas.addFirst(0);
@@ -58,7 +65,11 @@ public class LogicaGato {
             this.diagonales.addFirst(0);      
         }
     }
-    
+
+    /**
+     * Genera los botones para poder jugar
+     * @param Pane
+     */
     public void GenerateButons(GridPane Pane){ 
         for (int i=0 ; i<3; i++){
             for (int j=0 ; j<3; j++){
@@ -74,10 +85,14 @@ public class LogicaGato {
             }
         }            
     }
-    
-    
-    
-    
+
+
+    /**
+     * Setea la imagen, y verifica si uno de los jugadores gano
+     * @param e
+     * @param row
+     * @param column
+     */
     public void precionarBotton(ActionEvent e, int row , int column){
 
         Button but = (Button)e.getSource();
@@ -91,10 +106,12 @@ public class LogicaGato {
 
          
     }
- 
-    
 
-    
+
+    /**
+     * Coloca la imagen de una equis o circulo, y define de quien es el siguiente turno
+     * @param button
+     */
     private void putImage(Button button){
         if(this.turn.equals(this.Player1)){
             button.setGraphic(new ImageView(this.image1));
@@ -104,7 +121,12 @@ public class LogicaGato {
             this.turn = this.Player1;
         }
     }
-    
+
+    /**
+     * Verifica si alguno de los jugadores ya gano
+     * @param row
+     * @param column
+     */
     private void verificar (int row , int column){
         int extra = 0;
         if (this.Player2.equals(this.turn)){
@@ -144,8 +166,12 @@ public class LogicaGato {
             }this.diagonales.replaceDato(dato,row+column+extra);     
         }
 
-    } 
+    }
 
+    /**
+     *
+     * @return winner
+     */
     public String getWinner() {
         return Winner;
     }

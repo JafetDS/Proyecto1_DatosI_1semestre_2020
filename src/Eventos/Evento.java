@@ -13,6 +13,11 @@ import principal.Jugador;
  * @author User
  */
 public class Evento {
+    /**
+     * Asigna un evento de manera random
+     * @param turno
+     * @param Jugadores
+     */
     public void start(Jugador turno,ListaCircular<Jugador> Jugadores){
         
     }

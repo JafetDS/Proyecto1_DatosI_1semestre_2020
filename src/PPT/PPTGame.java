@@ -21,29 +21,28 @@ public class PPTGame extends Application {
     public GridPane root;
     public Scene ventana = new Scene(root = new GridPane());
     private ImageView vs = new ImageView(new Image("file:images/vs.png"));
-    private Label label = new Label();
     private Label tabla = new Label();
     private boolean play = false;
     private boolean playagain;
 
 
     @Override
+    /**
+     * Crea la ventana principal de juego, y toma las teclas de cada jugador, para luego compararlas
+     */
     public void start(Stage stage) throws Exception {
         stage.setScene(ventana);
         root.setPrefSize(800,600);
         vs.setTranslateY(225);
         vs.setTranslateX(250);
-        label.setText("");
-        label.setTranslateX(225);
-        label.setTranslateY(250);
         tabla.setText("0 - 0");
         tabla.setTranslateX(275);
         tabla.setTranslateY(353);
         tabla.setFont(Font.font("Verdana", FontWeight.BOLD, 40));
-        root.getChildren().addAll(vs, label, tabla);
+        root.getChildren().addAll(vs, tabla);
 
         Verifier juego = new Verifier();
-        juego.empezarjuego(vs, label);
+        juego.empezarjuego(vs);
 
         ventana.setOnKeyPressed(e -> {
             play = juego.isPlay();

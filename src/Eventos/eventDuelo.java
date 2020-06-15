@@ -13,6 +13,11 @@ import principal.Jugador;
  * @author User
  */
 public class eventDuelo extends Evento {
+    /**
+     * Función para escoger 1 jugador al azar y ponerlo en Duelo con el jugador que activo el evento
+     * @param turno
+     * @param Jugadores
+     */
     @Override
     public void start(Jugador turno,ListaCircular<Jugador> Jugadores){
         int num1=0;

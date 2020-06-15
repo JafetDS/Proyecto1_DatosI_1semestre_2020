@@ -24,6 +24,12 @@ public class Card {
     Verifier verifier;
     private ImageView back = new ImageView(new Image("file:images/back.png"));
 
+    /**
+     * Crea el contructor de las cartas para el memoria
+     * @param id
+     * @param image
+     * @param verifier
+     */
     Card(String id, String image, Verifier verifier){
         this.id = id;
         this.verifier = verifier;
@@ -59,6 +65,9 @@ public class Card {
         return visible;
     }
 
+    /**
+     * Hace las imagenes seleccionadas no visibles
+     */
     public void makeNotVisible(){
         back.setVisible(true);
         visible = false;
@@ -68,6 +77,9 @@ public class Card {
         return back;
     }
 
+    /**
+     * HAce las imagenes seleccionadas visibles
+     */
     public void makeVisible(){
         visible = true;
         back.setVisible(false);

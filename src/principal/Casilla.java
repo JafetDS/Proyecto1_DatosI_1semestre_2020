@@ -35,25 +35,37 @@ public class Casilla {
   
    
 
+   /**
+    * Constructor de imagen de cada casilla,
+    */
     public Casilla(Image image) {
         this.image = image;
         this.pane = new Pane();
         Construir_Casilla();
     }
-    
+
+    /**
+     * Constructor de color de cada casilla,
+     */
     public Casilla(String color) {
         this.color= color;
         this.pane = new Pane();
         Construir_Casilla();
     }
-    
+
+    /**
+     * Constructor de imagen y color de cada casilla,
+     */
     public Casilla(Image image,String color) {
         this.image = image;
         this.color= color;
         this.pane = new Pane();
         Construir_Casilla();
     }
-   
+
+    /**
+     * Setea la casilla en el Pane
+     */
     private void Construir_Casilla(){
      //  this.pane.setPrefSize(180, 160);
         if (image==null){
@@ -70,7 +82,11 @@ public class Casilla {
     public void setFicha(Button ficha){
         this.pane.getChildren().add(ficha);
     }
-   
+
+    /**
+     * Elimina una ficha
+     * @param ficha
+     */
     public void deleteFicha(Button ficha){
         this.pane.getChildren().remove(ficha);
     }

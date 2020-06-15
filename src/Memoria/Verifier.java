@@ -2,20 +2,24 @@ package Memoria;
 
 import Estructuras.ListaSimple;
 import javafx.application.Platform;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-
 import javax.swing.*;
-import java.util.concurrent.TimeUnit;
 
 public class Verifier {
     Verifier verifier = null;
     ListaSimple<Card> pairs = new ListaSimple<>();
     ListaSimple<Card> cards = new ListaSimple<>();
 
+    /**
+     * Constructor del verificador
+     */
     Verifier(){
     }
 
+    /**
+     * Obtine el verificador para añadirlo a cada carta
+     * @param cards
+     * @return
+     */
     public Verifier getVerifier(ListaSimple<Card> cards){
         if (verifier == null){
             verifier = new Verifier();
@@ -24,6 +28,10 @@ public class Verifier {
         return verifier;
     }
 
+    /**
+     * Verifica si se hizo click encima de cada imagen y compara si son las mismas imagenes
+     * @param card
+     */
     public void new_click(Card card) {
         pairs.addFirst(card);
         System.out.println("Added a new card.");
@@ -51,6 +59,10 @@ public class Verifier {
         }
     }
 
+    /**
+     * Finaliza el juego
+     * @return
+     */
     private boolean isGameOver(){
         for (int i = 0; i < cards.getlen(); i++) {
             if (!cards.getInfo(i).getVisible()){
