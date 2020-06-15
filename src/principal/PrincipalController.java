@@ -24,7 +24,6 @@ import Eventos.eventRobarEstrella;
 import Eventos.eventRobarMonedas;
 import Eventos.eventTeletransporte;
 import gato.gatoFXMLController;
-import gato.Prueba3Controller;
 import com.sun.javafx.tk.Toolkit;
 import java.io.IOException;
 import java.net.URL;
@@ -89,9 +88,11 @@ public class PrincipalController implements Initializable {
     private Button dados;
    
     public GridPane Tablero;
-    
-    
-    
+
+
+    /**
+     * Contructor principal del tablero
+     */
     public PrincipalController(){
         this.caminoPrincipal = new ListaCircular<>();
         
@@ -110,7 +111,12 @@ public class PrincipalController implements Initializable {
     *
      * @param event
      * @throws java.io.IOException */
-    
+
+    /**
+     * Metodo para iniciar el tablero y el juego
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void handleButtonAction(ActionEvent event) throws IOException {
         System.out.println("You clicked me!");
@@ -192,10 +198,21 @@ public class PrincipalController implements Initializable {
         pane.getChildren().add(hbox);
 **/
     }
+
+    /**
+     * Genera un numero random
+     * @param n
+     * @return
+     */
     private int random(int n){
         return (int)(Math.random() * ((n - 1) + 1)) + 1;
     }
-    
+
+    /**
+     * Toma los valores de cada dado y los suma, para el posterior posicionamiento de cada player
+     * @param e
+     * @throws InterruptedException
+     */
     @FXML
     private void getDados(ActionEvent e) throws InterruptedException{
             
@@ -232,7 +249,11 @@ public class PrincipalController implements Initializable {
 
     
 ///_________________________________________________________Grapic____________________________________________________________________________________________________
-   private void generatePila(){
+
+    /**
+     * Genera los eventos en una pila, para su posterior uso
+     */
+    private void generatePila(){
        for(int i = 0 ; i<10 ;i++){
            this.pilaEventos.push(new eventDuelo());
            this.pilaEventos.push( new eventRobarMonedas());
@@ -252,10 +273,11 @@ public class PrincipalController implements Initializable {
        this.pilaEventos.push(new eventGanar5E());
        
    }
-    
-    
-    
-    
+
+
+    /**
+     * Genera los colores a cada casilla
+     */
     private void generateColors(){
         for(int i=0 ; i<3 ; i++){
             for(int j = 0 ; j<3 ; j++){
@@ -265,7 +287,11 @@ public class PrincipalController implements Initializable {
             }
             this.Colors.addFirst("Yellow");   
         }
-    } 
+    }
+
+    /**
+     * Grafica el camino
+     */
     private void graficarCaminoA(){
         for(int i = 13; i>5; i--){
             Casilla casilla = new Casilla (image1,this.Colors.getInfo(random(30)));
@@ -279,7 +305,10 @@ public class PrincipalController implements Initializable {
         
         
     }
-    
+
+    /**
+     * Grafica el camino B
+     */
     private void  graficarCaminoB(){
         for(int i = 1; i<5;i++){
             Casilla casilla = new Casilla (image2,"Yellow");
@@ -299,7 +328,10 @@ public class PrincipalController implements Initializable {
             this.FaseB.addLast(casilla);
         }
     }
-    
+
+    /**
+     * Grafica el camino C
+     */
     private void graficarCaminoC(){
         
         for(int i = 13 ; i!=9 ; i--){
@@ -316,7 +348,9 @@ public class PrincipalController implements Initializable {
         
     }
     
-    
+    /**
+     * Grafica el camino D
+     */
     private void graficarCaminoD(){
         for(int i = 3; i<8; i++){
             Casilla casilla = new Casilla (image4,this.Colors.getInfo(random(30)));
@@ -344,6 +378,10 @@ public class PrincipalController implements Initializable {
         }
             
     }
+
+    /**
+     * Genera el tablero con todos los caminos
+     */
     private void generateTablero(){
         for (int i = 13 ; i!=-1; i--) {
             Casilla casilla = new Casilla (image,this.Colors.getInfo(random(30)));
@@ -370,8 +408,10 @@ public class PrincipalController implements Initializable {
         }
         
     }
-    
-    
+
+    /**
+     * Verifica si se debe desviar el personaje o no
+     */
     private void setTransitionNode(){
         this.caminoPrincipal.getNodo(5).getData().setDesvio(true);
         this.caminoPrincipal.getNodo(5).getData().setFase(this.FaseC.getHead());

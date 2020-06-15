@@ -11,6 +11,11 @@ public class PPT {
     private Image picture;
     private ImageView setPicture;
 
+    /**
+     * Constructor de las opciones, piedra, papel o tijera
+     * @param id
+     * @param image
+     */
     PPT(String id, String image){
         this.id = id;
         this.image = image;

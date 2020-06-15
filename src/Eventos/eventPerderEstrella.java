@@ -13,6 +13,11 @@ import principal.Jugador;
  * @author User
  */
 public class eventPerderEstrella extends Evento {
+    /**
+     * El jugador que activa el evento, pierde una estrella y se le suma a otro jugador al azar
+     * @param turno
+     * @param Jugadores
+     */
     @Override
     public void start(Jugador turno,ListaCircular<Jugador> Jugadores){
         turno.resEstrellas(1);

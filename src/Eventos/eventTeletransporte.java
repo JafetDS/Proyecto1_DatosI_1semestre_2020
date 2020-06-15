@@ -15,6 +15,11 @@ import principal.Jugador;
  * @author User
  */
 public class eventTeletransporte extends Evento{
+    /**
+     * El jugador que activa el evento es teletransportado a una posicion random
+     * @param turno
+     * @param Jugadores
+     */
         @Override
         public void start(Jugador turno,ListaCircular<Jugador> Jugadores){
             try {

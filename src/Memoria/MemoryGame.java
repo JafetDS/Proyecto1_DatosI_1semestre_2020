@@ -17,6 +17,10 @@ public class MemoryGame extends Application {
     private static final int NUM_OF_PAIRS = 6;
     private static final int NUM_PER_ROW = 4;
 
+    /**
+     * Crea la ventana principal, para que el juego funcione, carga todas las cartas
+     * @return
+     */
     private Parent createContent() {
         Pane root = new Pane();
         root.setPrefSize(900, 485);
@@ -58,6 +62,10 @@ public class MemoryGame extends Application {
 
     }
 
+    /**
+     * Setea el URL de cada carta que se va a usar
+     * @return
+     */
     public ListaSimple<String> getURLs() {
         String apple = "file:images/apple.png";
         String pear = "file:images/pear.png";
@@ -76,6 +84,7 @@ public class MemoryGame extends Application {
 
         return URLs;
     }
+
     public void start(){
         main(null);
     }

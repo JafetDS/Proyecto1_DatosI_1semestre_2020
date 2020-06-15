@@ -13,7 +13,11 @@ import principal.Jugador;
  * @author User
  */
 public class eventRegalarMonedas extends Evento {
-    
+    /**
+     * El jugador que activo el evento, pierde una cierta cantidad de monedas, y se reparten equitativamente entre los demas jugadores
+     * @param turno
+     * @param Jugadores
+     */
     @Override
     public void start(Jugador turno,ListaCircular<Jugador> Jugadores){
         int num1=this.random(4);
