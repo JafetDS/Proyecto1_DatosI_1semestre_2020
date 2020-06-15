@@ -268,7 +268,7 @@ public class PrincipalController implements Initializable {
     } 
     private void graficarCaminoA(){
         for(int i = 13; i>5; i--){
-            Casilla casilla = new Casilla (image1,this.Colors.getInfo(random(30)));
+            Casilla casilla = new Casilla (this.Colors.getInfo(random(30)));
             Tablero.add(casilla.getPane(), 2, i);
             this.FaseA.addLast(casilla);
         }

@@ -4,10 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/principal/PrincipalController.java</file>
-            <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/principal/FXMLPrincipal.fxml</file>
-            <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/principal/Jugador.java</file>
-            <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/gato/gatoFXMLController.java</file>
-            <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/gato/LogicaGato.java</file>
+            <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/PPT/PPTGame.java</file>
+            <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/principal/Principal.java</file>
+            <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/PPT/PPT.java</file>
+            <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/Estructuras/Pila_stack.java</file>
+            <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/Estructuras/ListaSimple.java</file>
             <file>file:/C:/UNIVERSIDAD/Datos1_I2020/Proyecto1_DatosI_1semestre_2020/Proyecto1_DatosI_1semestre_2020/src/principal/Casilla.java</file>
         </group>
     </open-files>
