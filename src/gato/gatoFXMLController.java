@@ -87,11 +87,7 @@ public class gatoFXMLController implements Initializable  {
 
         
     }
-    public String getWinner(){
-        return this.Winner;
 
-        
-    }
 
     /**
      * Destruye el juego, una vez termine
